@@ -97,10 +97,7 @@ const initialFighters =[
  
    // --- Handler Functions ---
  
-   /**
-    * Adds a fighter to the team if affordable, updates money and available fighters.
-    * @param {object} fighterToAdd - The fighter object to add.
-    */
+ 
    const handleAddFighter = (fighterToAdd) => {
      // Check if player can afford the fighter
      if (money >= fighterToAdd.price) {
@@ -119,10 +116,7 @@ const initialFighters =[
      }
    };
  
-   /**
-    * Removes a fighter from the team, refunds money, and adds them back to available fighters.
-    * @param {object} fighterToRemove - The fighter object to remove.
-    */
+ 
    const handleRemoveFighter = (fighterToRemove) => {
      // Update team state: Create a new array filtering out the removed fighter
      setTeam(team.filter(fighter => fighter.id !== fighterToRemove.id));
@@ -154,10 +148,10 @@ const initialFighters =[
  
    // --- JSX for Rendering ---
    return (
-     <div className="App"> {/* Added a wrapper div */}
+     <div className="App"> 
        <h1>Zombie Apocalypse Team Builder</h1>
  
-       {/* Display Stats */}
+       
        <section className="stats">
          <h2>Stats</h2>
          <p>Money: ${money}</p>
@@ -165,8 +159,7 @@ const initialFighters =[
          <p>Team Agility: {totalAgility}</p>
          <p>Team Cost: ${totalCost}</p>
        </section>
- 
-       {/* Display Current Team */}
+
        <section className="team">
          <h2>Your Team</h2>
          {team.length === 0 ? (
@@ -180,7 +173,7 @@ const initialFighters =[
                  <p>Price: ${member.price}</p>
                  <p>Strength: {member.strength}</p>
                  <p>Agility: {member.agility}</p>
-                 {/* Button to remove the member */}
+                
                  <button onClick={() => handleRemoveFighter(member)}>Remove</button>
                </li>
              ))}
@@ -188,7 +181,7 @@ const initialFighters =[
          )}
        </section>
  
-       {/* Display Available Fighters */}
+       
        <section className="available-fighters">
          <h2>Available Fighters</h2>
          <ul>
@@ -199,7 +192,7 @@ const initialFighters =[
                <p>Price: ${fighter.price}</p>
                <p>Strength: {fighter.strength}</p>
                <p>Agility: {fighter.agility}</p>
-               {/* Button to add the fighter */}
+               
                <button onClick={() => handleAddFighter(fighter)}>Add</button>
              </li>
            ))}
